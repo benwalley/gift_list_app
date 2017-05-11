@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name = "viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}</title>
+        
+        <link rel="stylesheet" href="/static/styles.css" type="text/css" />
+        <!--fontawesome-->
+        <script src="https://use.fontawesome.com/dc8d025f5d.js"></script>
+        <!--GOOGLE FONTS-->
+        <link href="https://fonts.googleapis.com/css?family=Arvo|Lato:400,700|Ubuntu:400,700" rel="stylesheet">
+        <!--JQUERY CDN-->
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
+        <!--NAVBAR-->
+    <div class = 'navbar'>
+        <!--Tell who is logged on-->
+        {% if session.get('name') %}
+            <a href = "{{url_for('user_list', name = session.get('name')) }}"><h1 class = 'title top'>{{session.get('name').title()}}</h1></a>
+            <a class = 'user_list' href = "{{url_for('list') }}"><span class = "mobile">User List</span>
+            <span class = "desktop">
+                <i class="fa fa-users" aria-hidden="true"></i>
+            </span></a>
+            <a href = "{{url_for('user_list', name = session.get('name')) }}"><h1 class = 'title middle'>{{session.get('name').title()}}</h1></a>
+            
+            <a href = "{{ url_for('addgift') }}" class = "add_gift">
+                <span class = "mobile">Add</span>
+                <span class = "desktop"><i class="fa fa-plus" aria-hidden="true"></i></span>
+            </a>
+            <a  href = "{{url_for('logout') }}" class = 'logout'>
+                <span class = "desktop"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                <span class = "mobile">Logout</span>
+            </a>
+            
+        {% endif %}
+        
+    </div>
+    <div class = "main">
+        
+        {% block content %}{% endblock %}
+        
+        
+        
+        
+        
+    </div>
+        
+        
+        
+    </body>
+</html>

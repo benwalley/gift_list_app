@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+
+{% block title %} People {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/user_list.css" type="text/css" />
+
+<h1 class = "title">{{ name }}'s list</h1>
+
+
+
+{% for gift in gifts %}
+
+
+
+<div class = "gift_item">
+    {% if gift.comment %}
+        <i class="fa fa-chevron-circle-down drop"  aria-hidden="true"></i>
+    {% endif %}
+    
+    <!--DISPLAYS THE NAME OF THE GIFT-->
+    <div  class = "gift_name">{{ gift.gift }}</div>
+    
+    
+    <!--IF YOU ARE THE ONE THE LIST IS FOR-->
+    {% if name.lower() == session.get('name').lower() %}
+    <a class = "d" href = "{{ url_for('delete', gift_id = gift.id) }}"><i class="fa fa-trash delete" aria-hidden="true"></i>
+</a>
+    <!--IF IT IS NOT YOUR LIST-->
+    {% else %}
+        <!--IF SOMEONE IS GETTING IT-->
+        {% if gift.giver %}
+            <span class = "given_by given">Given By - {{ gift.giver }}</span> 
+            <!--IF YOU ARE NOT ONE OF THE ONES GETTING IT-->
+            {% if  session.get('name').lower() not in gift.giver.lower() %}
+                <a class = "given_by give " href = "{{ url_for('give', gift_id = gift.id) }}">give this also</a>
+            {% else %}
+            <!--DONT GIVE THIS-->
+                <a class = "d mobile" href = "{{ url_for('dont_give', gift_id = gift.id) }}"><i class="fa fa-undo" aria-hidden="true"> Don't give</i></a>
+                <a class = "d desktop" href = "{{ url_for('dont_give', gift_id = gift.id) }}"><i class="fa fa-undo" aria-hidden="true"></i></a>
+
+            {% endif %}
+        <!--IF NO ONE IS GETTING IT-->
+        {% else %}
+            <a class = 'given_by give' href = "{{ url_for('give', gift_id = gift.id) }}">give this</a>
+        {% endif %}
+        
+        
+    {% endif %}
+    
+    
+   
+    <div class = "gift_details"><span class = "notes">Notes  -  </span>{{gift.comment }}</div>
+</div>
+
+
+
+{% endfor %}
+
+
+
+
+<div>
+<!--IF YOU ARE NOT THE ONE THE LIST IS FOR-->
+{% if name.lower() != session.get('name').lower() %}
+
+    {% for extra in extras %}
+        
+        
+        <div class = "gift_item">
+        <div class = "gift_name">{{ extra.comment }}</div><span class = "given_by given"> Given by - {{extra.giver}}</span>
+        {% if extra.giver.lower() == session.get("name").lower() %}
+        <a class = "d" href = "{{ url_for('delete_extra', extra_id = extra.id) }}"><i class="fa fa-trash delete" aria-hidden="true"></i></a>
+        {% endif %}
+        </div>
+    {% endfor %}
+
+</div>
+
+<!--ADD ANOTHER GIFT-->
+<div class = "add_form">
+    
+    <form  method = 'POST' action = "{{ url_for('user_list', name = name)}}" role = "form">
+    
+        
+        {{ form.hidden_tag() }}
+        <div class = 'input'>
+            <div class = 'input_title give_name'>{{ form.comment.label }}</div>
+            <div class = 'input_field give_input'>{{ form.comment|safe }}</div>
+        </div>
+        {% if form.comment.errors %}
+            <ul>
+                {% for error in form.comment.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        
+        {% endif %}
+        
+        <button type = "submit" class = "btn add_btn">Add Gift</button>
+        
+    </form>
+</div>
+{% endif %}
+
+<script type="text/javascript" src="/static/js/user_list.js"></script>
+{% endblock %}

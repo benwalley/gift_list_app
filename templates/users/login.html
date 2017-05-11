@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}User Login{% endblock %}
+
+{% block content %}
+
+<div class = "login_main">
+    <h3 class = 'title login_title'>Login</h3>
+    <!--check and display errors-->
+    {% if error %}
+    <div> {{ error }} </div>
+    {% endif %}
+    
+    <form method = "POST" action = "{{ url_for('login') }}" role = "form">
+    <!--NAME INPUT-->
+    
+    {{ form.hidden_tag() }}
+        <div class = "input name">
+        <div class = "input_title">{{ form.name.label }}</div>
+        <div class = "input_field">{{ form.name|safe }}</div>
+        </div>
+        {% if form.name.errors %}
+        
+            <ul>
+                {% for error in form.name.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        
+        {% endif %}
+        
+        <div class = 'input password'>
+        
+        <div class = "input_title">{{ form.password.label }}</div>
+        <div class = "input_field">{{ form.password|safe }}</div>
+        </div>
+        
+        {% if form.password.errors %}
+        
+            <ul>
+                {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        
+        {% endif %}
+        <button class = "register_btn"><a id = "reg_a" href = "{{url_for('register') }}">Sign Up</a></button>
+        <!--<a class = "reg_btn" href="{{url_for('register') }}"><button class = "reg_btn">Sign Up</button></a>-->
+        <button class = "login_btn" type = "submit">Login</button>
+    </form>
+</div>
+
+
+{% endblock %}

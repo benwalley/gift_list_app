@@ -1,0 +1,471 @@
+$logout-blue: #3685B5;
+$link-shadow: 1px 1px 2px grey;
+$link-hover: 2px 2px 4px #747474;
+$text-color: #171717;
+
+
+@media (min-width: 501px){
+    .main{
+        margin-left:20%;
+        margin-right:20%;
+        
+        
+    }
+    
+    .navbar{
+        padding-left:20vw;
+        background:#84BF99;
+        max-width:100%;
+        overflow:hidden;
+        padding-right:20vw;
+        box-shadow:0px 0px 8px 0px black;
+    }
+}
+
+@media (max-width:500px){
+    .main{
+        margin:0;
+        overflow:hidden;
+    }
+    
+    .navbar{
+        padding-left:0;
+        background:#84BF99;
+        width:100%;
+        overflow:hidden;
+        
+        
+        box-shadow:0px 0px 8px 0px black;
+    }
+    
+    
+}
+
+
+
+.title{
+    margin:0;
+    text-align:center;
+    float:left;
+    margin-left:3vw;
+    margin-right:3vw;
+    padding:2vh;
+    font-size:3em;
+    
+    font-family: 'Lato', sans-serif;
+    color:$text-color;
+}
+
+@media (min-width:500px){
+    .title{
+        margin:0;
+        text-align:center;
+        float:left;
+        margin-left:10vw;
+        margin-right:10%;
+        padding:2vh;
+        font-size:3em;
+        
+        font-family: 'Lato', sans-serif;
+        color:$text-color;
+    }
+    
+}
+
+@media (max-width: 500px){
+    .title{
+        width:100%;
+        margin:0;
+        text-align:center;
+        float:left;
+        padding:2vh;
+        font-size:3em;
+        padding-right:0;
+        padding-left:0;
+        font-family: 'Lato', sans-serif;
+        color:$text-color;
+       
+    }
+}
+
+
+
+body{
+    background:#e1eaed;
+    margin:0;
+}
+
+@media (min-width: 501px){
+    .add_gift{
+        float:left;
+        padding:10px;
+        padding-top:5vh;
+        font-size:1.3em;
+        font-family: 'Arvo', serif;
+        text-decoration:none;
+        color:$text-color;
+        text-shadow:$link-shadow;
+        
+    }
+    
+    .top{
+        display:none;
+    }
+    
+    .middle{
+        display:block;
+    }
+    
+    .mobile{
+        display:block;
+    }
+    
+    .desktop{
+        display:none;
+    }
+    
+    .user_list{
+   
+        float:left;
+        padding:10px;
+        padding-top:5vh;
+        font-size:1.3em;
+        font-family: 'Arvo', serif;
+        text-decoration:none;
+        color:$text-color;
+        text-shadow:$link-shadow;
+    }
+    
+    .logout{
+        float:right;
+        
+        font-weight:bold;
+        padding:5px;
+        font-size:1.2em;
+        color:$text-color;
+        margin-top:6vh;
+        margin-right:2vw;
+        background:$logout-blue;
+        font-family: 'Arvo', serif;
+        text-decoration:none;
+        border:2px solid $logout-blue;
+        border-radius:5px;
+        
+        
+    }
+    
+    .logout:hover{
+        background:white;
+        color:$logout-blue;
+    }
+}
+
+@media (max-width: 500px){
+    .add_gift{
+        
+        float:left;
+        width:33%;
+        text-align:center;
+        
+        padding-top:5vh;
+        font-size:1.7em;
+        font-family: 'Arvo', serif;
+        text-decoration:none;
+        color:$text-color;
+        
+    }
+    .top{
+        display:block;
+    }
+    
+    .middle{
+        display:none;
+    }
+    
+    .mobile{
+        display:none;
+    }
+    .desktop{
+        dispay:block;
+    }
+    
+    .user_list{
+        
+        text-align:center;
+        float:left;
+        width:33%;
+        padding-top:5vh;
+        font-size:1.7em;
+        font-family: 'Arvo', serif;
+        text-decoration:none;
+        color:$text-color;
+        
+    }
+    
+    .logout{
+        text-align:center;
+        float:left;
+        color:$text-color;
+        font-weight:bold;
+        width:33%;
+        padding-top:5vh;
+        font-size:1.7em;
+        
+        
+        font-family: 'Arvo', serif;
+        text-decoration:none;
+        
+    }
+}
+
+.add_gift:hover{
+    text-shadow:$link-hover;
+}
+
+
+
+.user_list:hover{
+    text-shadow:$link-hover;
+}
+
+
+
+// login page
+
+
+.login_title{
+    width:100%;
+    
+    padding-left:10vw;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight:200;
+}
+
+
+
+
+
+
+@media (min-width: 501px){
+    .input_title{
+        width:20%;
+        float:left;
+        font-size:1.4em;
+        font-family: 'Ubuntu', sans-serif;
+        padding-top:5px;
+    }
+    
+    .input{
+        width:100%;
+        padding:8px;
+        float:left;
+        overflow:hidden;
+        margin-top:5vh;
+        
+    }
+    
+    .login_title{
+        text-align:left; 
+    }
+    
+    .login_main{
+        margin-right:5vw;
+        margin-left:5vw;
+        padding-top:5vh;
+        padding-left:12vh;
+        padding-right:12vh;
+        background:#f2f2f2;
+        margin-top:7vh;
+        box-shadow:2px 3px 11px 0px #959595;
+        border-radius:.7vw;
+        padding-bottom:3vh; 
+        overflow:hidden;
+        
+    }
+    .input_field{
+        width:70%;
+        float:left;
+    }
+    
+    .btn{
+        margin-top:50px;
+        border-radius:3px;
+        border:1px solid #84bf99;
+        background:#84bf99;
+        font-size:1.2em;
+        font-family: 'Lato', sans-serif;
+        width:20%;
+        padding:5px;
+        margin-left:75%;
+    }
+    
+    .delete{
+        color:$text-color;
+    }
+}
+
+@media (max-width: 500px){
+    .input_title{
+        width:100%;
+        float:left;
+        font-size:1.4em;
+        font-family: 'Ubuntu', sans-serif;
+        padding:7px;
+        padding-left:15px;
+    }
+    
+    .input{
+        width:100%;
+        padding:8px;
+        padding-left:10%;
+        float:left;
+        overflow:hidden;
+        margin-top:3vh;
+        
+    }
+    
+    .login_title{
+        text-align:center;
+        padding-left:0;
+        padding:5px;
+    }
+    
+    .login_main{
+        margin-right:5vw;
+        margin-left:5vw;
+        padding-top:5vh;
+        overflow:hidden;
+        background:#f2f2f2;
+        margin-top:7vh;
+        box-shadow:2px 3px 11px 0px #959595;
+        border-radius:.7vw;
+        padding-bottom:3vh; 
+        margin-bottom:5vh;
+    }
+    
+    .input_field{
+        width:80%;
+        float:left;
+    }
+    
+    .btn{
+        margin-top:50px;
+        border-radius:3px;
+        border:1px solid #84bf99;
+        background:#84bf99;
+        font-size:1.2em;
+        font-family: 'Lato', sans-serif;
+        width:40%;
+        padding:5px;
+        margin-left:50%;
+    }
+    
+    .delete{
+        color:#e60000;
+    }
+    
+    
+    
+    
+}
+
+input{
+    
+    width:80%;
+    padding:10px;
+    font-size:1.1em;
+    border-radius:5px;
+    font-family: 'Ubuntu', sans-serif;
+    box-shadow:2px 2px 4px grey;
+}
+
+
+
+.login_btn:hover{
+    background:#2e8a2e;
+    color:#eeeeee;
+}
+
+.gift_input_title{
+    width:100%;
+    font-family: 'Ubuntu', sans-serif;
+    font-size:1.3em;
+    float:left;
+    padding:12px;
+}
+
+
+
+
+.btn:hover{
+    background:white;
+}
+
+.register_btn{
+    float:left;
+    padding:7px;
+    
+    margin:10px;
+    background:#156ca0;
+    border-radius:10px;
+    color:white;
+    margin-left:8%;
+    
+    box-shadow:2px 2px 4px 1px #5f5f5f;
+    margin-top:5vh;
+    
+}
+
+#reg_a{
+    text-decoration:none !important;
+    color:white !important;
+    font-family: 'Ubuntu', sans-serif;
+    font-size:1.4em;
+}
+
+.login_btn{
+    font-family: 'Ubuntu', sans-serif;
+    font-size:1.2em;
+    float:right;
+    padding:7px;
+    font-size:1.2em;
+    margin:10px;
+    margin-top:5vh;
+    margin-right:10%;
+    background:#16a216;
+    border-radius:10px;
+    color:white;
+    // font-family: 'Ubuntu', sans-serif;
+    box-shadow:2px 2px 4px 1px #5f5f5f;
+}
+
+.delete{
+    
+    float:right;
+    
+    padding:10px;
+    margin-right:10%;
+    
+    
+}
+
+.delete:hover{
+    text-shadow:0px 1px 6px #252525;
+    color:#e60000;
+    font-size:1.21em;
+    padding:8px;
+    
+}
+
+.d{
+    font-size:1.2em;
+}
+
+
+
+
+
+
+// font-family: 'Lato', sans-serif;
+// font-family: 'Ubuntu', sans-serif;
+// font-family: 'Arvo', serif;

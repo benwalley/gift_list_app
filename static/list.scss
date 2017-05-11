@@ -1,0 +1,39 @@
+.list_main{
+    padding-bottom:20vh;
+}
+
+.icon{
+    margin:1vw;
+    float:left;
+    font-size:3em;
+
+}
+
+.name{
+    padding:1.5vw;
+    float:left;
+    max-width:80%;
+    font-size:1.7em;
+    text-decoration:none;
+    color:#01141C;
+}
+
+.list_title{
+    text-align:center;
+    font-size:3em;
+    text-shadow:2px 2px 1px #747474;
+    
+}
+
+.user{
+  overflow:hidden;
+}
+
+.user:nth-of-type(odd){
+    background:#C2D2E5;
+    box-shadow:2px 2px 4px #7f7f7f;
+}
+
+i{
+    color:#01161E;
+}

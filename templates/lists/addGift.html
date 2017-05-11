@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %} Add Gifts {% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/add.css" type="text/css" />
+
+<div class = "add_main">
+
+<form method = 'POST' action = "{{ url_for('addgift') }}" role = "form">
+    
+    {{ form.hidden_tag() }}
+
+<div>
+    <h2 class = 'title'>Add Gifts</h2>
+    
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div id = "messages">
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+</div>
+
+<div>
+    <div class = "gift_input_title">
+        {{ form.gift.label }}
+    </div>
+    <div class = "">
+        {{ form.gift|safe }}
+    </div>
+        
+    {% if form.gift.errors %}
+        <ul>
+            {% for error in form.gift.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        
+    {% endif %}
+    <div class = "gift_input_title">
+        {{ form.comment.label }}
+    </div>
+    <div class = "">
+        {{ form.comment|safe }}
+    </div>
+        
+    {% if form.comment.errors %}
+        <ul>
+            {% for error in form.comment.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        
+    {% endif %}
+</div>
+
+<button type = "submit"class = "btn">Add Gift</button>
+
+</form>
+
+</div>
+
+{% endblock %}
+
+
+
